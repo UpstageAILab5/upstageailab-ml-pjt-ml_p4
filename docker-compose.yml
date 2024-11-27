@@ -1,0 +1,6 @@
+services:
+  scrapy:
+    build: .
+    volumes:
+      - .:/app         # 현재 디렉토리를 컨테이너의 /app에 연결
+    command: scrapy crawl naver_blog_spider
