@@ -1,0 +1,21 @@
+# Python 관련 캐시 파일
+__pycache__/
+*.pyc
+
+# Scrapy에서 생성된 작업 관련 디렉토리
+.scrapy/
+crawls/
+logs/
+output/
+
+# Docker 관련 캐시
+*.log
+*.pid
+
+# IDE 및 시스템 파일
+.vscode/
+.idea/
+.DS_Store
+
+# Git 관련 파일
+.git/

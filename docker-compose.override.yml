@@ -1,0 +1,14 @@
+services:
+  scrapy:
+    environment:
+      - CONTAINER_NAME=naver-blog-container
+      - CHROME_BIN=/usr/bin/chromium
+      - CHROMEDRIVER_BIN=/usr/bin/chromedriver
+    entrypoint: []  # Dockerfile의 ENTRYPOINT 제거
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash", "-c", "source /etc/profile && exec /bin/bash -l"]  # 명시적으로 로그인 셸 실행
+    volumes:
+      - .:/app  # 프로젝트 전체 마운트
+      - ./logs:/app/logs  # 로그 디렉토리 별도 마운트 (중복 허용)
+      - ./output:/app/output  # 출력 디렉토리 별도 마운트 (중복 허용)

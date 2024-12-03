@@ -1,0 +1,14 @@
+services:
+  scrapy:
+    build: .
+    stdin_open: true
+    tty: true  # 터미널 출력을 유지
+    image: naver-blog-crawler  # Docker image 이름 설정
+    container_name: naver-blog-crawler  # Docker container 이름 설정
+    volumes:
+      - .:/app  # 프로젝트 전체 마운트
+      - ./logs:/app/logs  # 로그 디렉토리 별도 마운트 (중복 허용)
+      - ./output:/app/output  # 출력 디렉토리 별도 마운트 (중복 허용)
+    environment:
+      - CHROME_BIN=/usr/bin/chromium
+      - CHROMEDRIVER_BIN=/usr/bin/chromedriver
