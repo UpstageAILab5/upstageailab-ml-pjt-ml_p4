@@ -2,6 +2,7 @@
 import time
 import sys
 import os
+import re
 from urllib.parse import unquote
 
 # 외부 라이브러리
@@ -273,6 +274,8 @@ class NaverBlogSpider(scrapy.Spider):
         item["date"] = response.meta.get("date", "Unknown Date")
         item["preview"] = response.meta.get("preview", "No Preview")
         item["content"] = content if content else "No Content Available"
+        item['content'] = re.sub(r',', '', item['content'])  # comma( ,)를 제거
+        item['content'] = re.sub(r'\n', ' ', item['content'])    # \n을 공백으로 대체
 
         # 디버깅 로그: 추출된 item 객체 전체를 디버깅 로그에 기록
         self.logger.debug(f"Scraped item: {item}")
