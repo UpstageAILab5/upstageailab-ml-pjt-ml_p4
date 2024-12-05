@@ -19,7 +19,7 @@ Python 기반 네이버 블로그 크롤러 서비스입니다. 검색어(Query)
    cd CrawlerService
 
 2. 가상환경 설정
-   python3.12 -m venv venv
+   python3.10 -m venv venv
    source venv/bin/activate  # Windows: venv\Scripts\activate
 
 3. 의존성 설치
